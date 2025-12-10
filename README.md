@@ -70,6 +70,8 @@ ai-prompt-starter-kit/
 │   ├── refactoring.md             # Refactoring guidance
 │   └── migration.md               # Migration guidance
 ├── rules/
+│   ├── language-style.md          # Language style template (customize for your language)
+│   ├── framework-specific.md      # Framework-specific template (for targeted use cases)
 │   ├── coding-practices.md        # Coding conventions
 │   ├── error-handling.md          # Error handling patterns
 │   ├── testing-patterns.md        # Testing conventions
