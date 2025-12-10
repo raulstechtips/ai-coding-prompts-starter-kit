@@ -4,6 +4,12 @@ This directory contains lean rule files that activate AI assistants' existing kn
 
 ## Available Rules
 
+**[language-style.md](./language-style.md)** _(Template)_  
+Generic template for language-specific style guides. Customize with @setup-assistant.md to create style guides for Python, TypeScript, Go, Java, etc. Covers formatting, naming conventions, type systems, design principles, and language-specific best practices.
+
+**[framework-specific.md](./framework-specific.md)** _(Template)_  
+Lean template for framework-specific use cases. Create focused rules for Django REST Framework error handling, Express middleware patterns, Spring Boot annotations, etc. Relies on external_references and additional_context to build targeted guidance.
+
 **[coding-practices.md](./coding-practices.md)**  
 Language style, naming conventions, framework patterns, logging, and code organization.
 
@@ -137,6 +143,92 @@ See [examples/](../examples/) for fully customized rule files:
 - **[java-spring/](../examples/java-spring/rules/)** - Java/Spring patterns
 
 ## Rule Categories
+
+### language-style.md (Template)
+
+**Purpose:**  
+A comprehensive template for creating language-specific style guides that activate the AI's deep knowledge of language conventions, idioms, and best practices.
+
+**When to create:**
+- Starting a new project with a specific language
+- Establishing team-wide language conventions
+- Creating a comprehensive style reference for your codebase
+
+**How to customize:**
+
+Use @setup-assistant.md with minimal parameters (only `language` is required):
+
+```
+@setup-assistant.md
+
+target_file: "rules/language-style.md"
+language: "TypeScript"
+external_references: "https://www.typescriptlang.org/docs/handbook/intro.html"
+additional_context: "Use ESLint with Airbnb config, prefer functional patterns"
+```
+
+The assistant will use its knowledge of the language ecosystem to fill in:
+- File extension globs (e.g., `**/*.ts`, `**/*.tsx`)
+- Official style guide references (inferred from language)
+- Formatting conventions (indentation, line length, imports)
+- Naming conventions (functions, classes, variables, constants)
+- Type system examples with idiomatic patterns
+- Design principles with language-specific applications
+- Best practices and anti-patterns
+- Language-specific tooling (linters, formatters)
+
+Save the customized version with a descriptive name (e.g., `typescript-style.mdc`, `python-style.mdc`).
+
+**What it covers:**
+- Formatting (indentation, line length, imports)
+- Naming conventions (functions, classes, constants, privates)
+- Type system usage (type hints, interfaces, generics)
+- Design principles (SOLID, composition, control flow)
+- Best practices (resource management, data structures, docs)
+- Language-specific considerations (tooling, ecosystem patterns)
+
+**Note:** This template is more comprehensive than coding-practices.md, focusing specifically on language style and conventions. See `python-style.mdc` for a real-world example.
+
+### framework-specific.md (Template)
+
+**Purpose:**  
+A lean template for creating framework-specific rules for targeted use cases. Perfect for capturing specific patterns like "Django REST Framework serialization", "Express.js middleware", or "Spring Boot exception handling".
+
+**When to create:**
+- Need focused guidance on a specific framework feature or pattern
+- Want to document team conventions for a particular framework aspect
+- Have external documentation to reference for a specific use case
+
+**How to customize:**
+
+Use @setup-assistant.md with external references and additional context:
+
+```
+@setup-assistant.md
+
+target_file: "rules/framework-specific.md"
+language: "Python"
+framework: "Django REST Framework"
+external_references: "https://www.django-rest-framework.org/api-guide/exceptions/"
+additional_context: "Custom error handling: always return 'error_code' field, use consistent error response format, log all 500 errors to Sentry"
+```
+
+The assistant will create a focused rule file covering:
+- Overview of the specific use case
+- Core patterns from external references
+- Implementation details based on additional context
+- Best practices and anti-patterns
+- Focused code example
+
+Save with a descriptive name like `django-drf-errors.mdc`, `express-middleware.mdc`, etc.
+
+**What it covers:**
+- Specific framework feature or pattern
+- Targeted best practices
+- Team-specific conventions
+- Focused examples
+
+**Note:** This template is intentionally lean and context-driven. The quality of output depends heavily on the external_references and additional_context you provide.
 
 ### coding-practices.md
 

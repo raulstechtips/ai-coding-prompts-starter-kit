@@ -12,16 +12,16 @@ variables:
     required: true
   - name: "framework"
     description: "Main framework/library (e.g., Express, Django, Gin, Spring Boot)"
-    required: true
+    required: false
   - name: "database"
     description: "Primary database (e.g., PostgreSQL, MongoDB, MySQL)"
-    required: true
+    required: false
   - name: "orm"
     description: "ORM/data layer (e.g., Prisma, Django ORM, GORM, Hibernate)"
-    required: true
+    required: false
   - name: "test_framework"
     description: "Testing framework (e.g., Jest, pytest, testing, JUnit)"
-    required: true
+    required: false
   - name: "package_manager"
     description: "Package manager (e.g., npm, pip, go mod, maven)"
     required: false
@@ -75,6 +75,7 @@ Replace variables with specific values:
 - Fill placeholder sections with framework-specific patterns
 
 **For Rule Templates (coding-practices, error-handling, etc.):**
+- Use `{{external_references}}` if provided, otherwise rely on your knowledge of `{{language}}` standards
 - Add language-specific style conventions
 - Include framework-specific patterns and best practices
 - Add ORM-specific query optimization patterns
@@ -134,21 +135,3 @@ Brief list of:
 - Common issues included
 - Examples provided
 - Any stack-specific considerations
-
-## Usage Example
-
-```
-@setup-assistant.md
-
-target_file: "prompts/bug-fix.md"
-language: "TypeScript"
-framework: "Express.js"
-database: "PostgreSQL"
-orm: "Prisma"
-test_framework: "Jest"
-package_manager: "npm"
-api_style: "REST"
-external_references: "https://expressjs.com/en/guide/error-handling.html"
-additional_context: "We use async/await for all routes, middleware for auth"
-```
-
